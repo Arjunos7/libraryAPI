@@ -25,6 +25,7 @@ router.register('user',views.CreateUser)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',include(router.urls)),
-    path('api-token-auth/',rviews.obtain_auth_token)
+    path('api-token-auth/',rviews.obtain_auth_token),
+    path('user_logout', views.user_logout.as_view(), name='logout'),
 
 ]

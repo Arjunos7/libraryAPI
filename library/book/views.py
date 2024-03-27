@@ -73,13 +73,16 @@ class Bookrecords(viewsets.ModelViewSet):
 
 
 
-
-
-
-
 class CreateUser(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
+
+
+class user_logout(APIView):
+    permission_classes = [IsAuthenticated,]
+    def get(self):
+        self.request.user.auth_token.delete()
+        return Response(status=status.HTTP_200_OK)
 
 
 
